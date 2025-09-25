@@ -1,5 +1,5 @@
 # okx_dex_api
-## 说明：通过okx的钱包交易需要扣除服务，但使用okx的api交易却无需扣除服务费。本程序可以批量交易指定地址的山寨币交易。因为刷base链空投的原因，当前只支持BASE链交易。其他链待后面更新添加
+## 说明：通过okx的钱包交易需要扣除服务，但使用okx的api交易却无需扣除服务费。本程序可以批量交易指定地址的山寨币交易。因为刷base链空投的原因，当前只支持BASE链交易。其他链待后面更新添加(待添加OP，BSC，ARB等EVM链)
 ## Note: Transactions through OKX wallets require service charges, but transactions using OKX APIs do not require service charges. This program can batch trade altcoins at a specified address. Due to the Base Chain airdrop, only BASE Chain transactions are currently supported. Other chains will be added in future updates.
 
 # 无责声明：本程序为明文代码，运行前请先审核代码安全性。确定使用后，运行时产生任何损失均与本代码无关（GAS消耗，互换无常损失为正常现象）。

@@ -10,6 +10,7 @@
 
     sudo apt update && sudo apt install python3 python3-pip
     pip3 install requests web3
+    sudo apt install python3-tk
     
 ## 2 准备address.txt
 准备刷号的地址每个私匙一行

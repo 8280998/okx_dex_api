@@ -2,7 +2,7 @@
 ## 说明：通过okx的钱包交易需要扣除服务，但使用okx的api交易却无需扣除服务费。本程序可以批量交易指定地址的山寨币交易。已支持EVM链的自定义添加。
 ## Note: Transactions through OKX wallets require service charges, but transactions using OKX APIs do not require service charges. This program can batch trade altcoins at a specified address. Custom additions to the EVM chain are now supported.
 
-# 无责声明：本程序为明文代码，运行前请先审核代码安全性。确定使用后，运行时产生任何损失均与本代码无关（GAS消耗，互换无常损失为正常现象）。
+## 无责声明：本程序为明文代码，运行前请先审核代码安全性。确定使用后，运行时产生任何损失均与本代码无关（GAS消耗，互换无常损失为正常现象）。
 # Disclaimer: This program is plain text code. Please review the code security before running it. Once you confirm your use, any losses incurred during operation are not related to this code (GAS consumption and exchange impermanence losses are normal).
 
 ### 更新说明：okx的api已更新到V6，本程序也更新为V6的api。

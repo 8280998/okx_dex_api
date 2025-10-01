@@ -9,5 +9,22 @@
     "tx_timeout": 10,
     "max_retries": 3,
     "token_contract": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
-    "target_contract": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+    "target_contract": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "chain": "base",
+    "networks": {
+        "base": {
+            "chain_id": 8453,
+            "rpc_url": "https://mainnet.base.org",
+            "default_token_address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+            "default_target_address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+            "default_gas_limit": 450000
+        },
+        "op": {
+            "chain_id": 10,
+            "rpc_url": "https://mainnet.optimism.io",
+            "default_token_address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+            "default_target_address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+            "default_gas_limit": 450000
+        }
+    }
 }

@@ -32,8 +32,13 @@ Add directly in the GUI, click Save Configuration to automatically generate conf
 <img width="1830" height="400" alt="image" src="https://github.com/user-attachments/assets/e2c02135-96d9-47b4-a189-d4762d21fcba" />
 
 ## 4 运行
+
+okx_v5
     python3 okx.py
 
+okx_v6
+    python3 okx_v6.py
+    
 运行界面如下：  
 <img width="1844" height="1548" alt="image" src="https://github.com/user-attachments/assets/8b209f4c-e185-43e9-9ac5-6a9a0b914b36" />
 

@@ -5,6 +5,9 @@
 # 无责声明：本程序为明文代码，运行前请先审核代码安全性。确定使用后，运行时产生任何损失均与本代码无关（GAS消耗，互换无常损失为正常现象）。
 # Disclaimer: This program is plain text code. Please review the code security before running it. Once you confirm your use, any losses incurred during operation are not related to this code (GAS consumption and exchange impermanence losses are normal).
 
+### 更新说明：okx的api已更新到V6，本程序也更新为V6的api。
+### 其中新增一个参数如下说明：(可选，默认值为 90%) 允许的价格影响百分比 (介于 0 和 100 之间)。当用户设置了 priceImpactProtectionPercent 后，如果估算的价格影响超过了指定的百分比，将会返回一个错误。例如，如果 priceImpactProtectionPercent = 25，任何价格影响高于 25% 的报价都将返回错误。这是一个可选开启的功能，默认值为 90。当百分比被设置为 100 时，此功能将被禁用，也就是说，每一笔交易都会被允许通过。
+
 ## 1 运行环境
 下载并安装Python 3.8或更高版本，安装所需Python库
 

@@ -429,7 +429,7 @@ class TradingApp:
             tx_timeout = int(float(self.tx_timeout_entry.get()))
             max_retries = int(float(self.max_retries_entry.get()))
             
-            # Gas Limit: 留空使用120%gas
+            # Gas Limit: 如果空，用None（使用120%缓冲）
             gas_limit_str = self.gas_limit_entry.get().strip()
             if gas_limit_str:
                 gas_limit = int(float(gas_limit_str))
@@ -627,9 +627,22 @@ def build_and_send_tx(tx_dict, account, log_callback=None):
     for attempt in range(max_retries):
         try:
             # 获取当前gas费用
-            base_fee = w3.eth.get_block('pending')['baseFeePerGas']
-            max_priority_fee = w3.eth.max_priority_fee
-            max_fee_per_gas = base_fee + max_priority_fee * 2
+            gas_attempt = 0
+            while gas_attempt < 3:
+                try:
+                    fee_history = w3.eth.fee_history(10, 'latest')
+                    base_fee_estimates = fee_history['baseFeePerGas']
+                    base_fee = base_fee_estimates[-1]  # Estimated next base fee
+                    max_priority_fee = w3.eth.max_priority_fee
+                    max_fee_per_gas = base_fee + (max_priority_fee * 2)
+                    break  # Success, exit loop
+                except Exception as gas_e:
+                    gas_attempt += 1
+                    if log_callback:
+                        log_callback(f"Gas estimation failed (attempt {gas_attempt}/3): {gas_e}. Retrying...")
+                    time.sleep(2)
+                if gas_attempt == 3:
+                    raise ValueError("Failed to estimate gas after retries")
 
             tx = ensure_tx_fields(tx_dict)
             original_gas = tx['gas']
@@ -749,11 +762,7 @@ def perform_swap(params, from_token, account, log_callback=None):
             'amount': params['amount'],
             'slippagePercent': str(slippage * 100),
             'userWalletAddress': params['userAddr'],
-          #priceImpactProtectionPercent参数：这是V6新参数，可选，默认值为 90%)，允许的价格影响百分比 (介于 0 和 100 之间)。
-          #当用户设置了 priceImpactProtectionPercent 后，如果估算的价格影响超过了指定的百分比，将会返回一个错误。
-          #例如，如果 priceImpactProtectionPercent = 25，任何价格影响高于 25% 的报价都将返回错误。
-          #这是一个可选开启的功能，默认值为 90。当百分比被设置为 100 时，此功能将被禁用，也就是说，每一笔交易都会被允许通过。
-            'priceImpactProtectionPercent': '90',
+            'priceImpactProtectionPercent': '90',  # V6 新参数，默认90%
             'swapMode': 'exactIn'  # 默认
         }
         
